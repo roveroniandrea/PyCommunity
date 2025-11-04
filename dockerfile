@@ -5,6 +5,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libxml2-dev \
     libxslt1-dev \
+    wget \
+    unzip \
+ && wget -q https://www.bok.net/Bento4/binaries/Bento4-SDK-1-6-0-641.x86_64-unknown-linux.zip -O /tmp/bento4.zip \
+ && unzip /tmp/bento4.zip -d /tmp/bento4 \
+ && cp -r /tmp/bento4/Bento4-SDK-1-6-0-641.x86_64-unknown-linux/bin/* /usr/bin/ \
+ && rm -rf /tmp/bento4* \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
