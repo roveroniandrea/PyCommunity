@@ -37,7 +37,7 @@
     },
     "M3U8_CONVERSION": {
         "use_gpu": true,
-        "param_video": ["-c:v", "libx264", "-crf", "28", "-preset", "medium"],
+        "param_video": ["-c:v", "h264_nvenc", "-preset", "p4", "-rc", "vbr", "-b:v", "5M"],
         "param_audio": ["-c:a", "aac", "-b:a", "128k"],
         "param_subtitles": ["-c:s", "mov_text"],
         "param_final": ["-movflags", "+faststart", "-brand", "mp42"],
