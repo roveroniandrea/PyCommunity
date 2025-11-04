@@ -1,0 +1,1 @@
+docker run --rm -it --name streaming_community_downloader -p 8000:8000 -v "D:\films:/app/Video" -v "C:\Users\Utente\Documents\repositories\StreamingCommunity\config.json:/app/config.json" streaming-community-api

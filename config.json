@@ -12,7 +12,7 @@
         "movie_folder_name": "Movie",
         "serie_folder_name": "Serie",
         "anime_folder_name": "Anime",
-        "map_episode_name": "%(episode_name) S%(season)E%(episode)",
+        "map_episode_name": "%(tv_name) - S%(season)E%(episode) - %(episode_name)",
         "add_siteName": false
     },
     "QBIT_CONFIG": {
@@ -30,22 +30,19 @@
             "ita"
         ],
         "merge_subs": true,
-        "specific_list_subtitles": [
-            "ita",
-            "eng"
-        ],
+        "specific_list_subtitles": [],
         "limit_segment": 0,
         "cleanup_tmp_folder": true,
         "get_only_link": false
     },
     "M3U8_CONVERSION": {
-        "use_gpu": false,
-        "param_video": ["-c:v", "libx265", "-crf", "28", "-preset", "medium"],
-        "param_audio": ["-c:a", "libopus", "-b:a", "128k"],
-        "param_subtitles": ["-c:s", "webvtt"],
-        "param_final": ["-c", "copy"],
+        "use_gpu": true,
+        "param_video": ["-c:v", "libx264", "-crf", "28", "-preset", "medium"],
+        "param_audio": ["-c:a", "aac", "-b:a", "128k"],
+        "param_subtitles": ["-c:s", "mov_text"],
+        "param_final": ["-movflags", "+faststart", "-brand", "mp42"],
         "force_resolution": "Best",
-        "extension": ".mkv"
+        "extension": "mp4"
     },
     "REQUESTS": {
         "verify": false,
