@@ -47,7 +47,7 @@
     "REQUESTS": {
         "verify": false,
         "timeout": 15,
-        "max_retry": 3
+        "max_retry": 5
     },
     "HOOKS": {
         "pre_run": [],
