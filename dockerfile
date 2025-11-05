@@ -1,6 +1,9 @@
-FROM python:3.11-slim
+FROM nvidia/cuda:13.0.1-devel-ubuntu22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-pip \
     ffmpeg \
     build-essential \
     libxml2-dev \
@@ -26,6 +29,8 @@ COPY . .
 
 ENV PYTHONPATH="/app:${PYTHONPATH}"
 
+RUN cd GUI && python3 manage.py migrate
+
 EXPOSE 8000
 
-CMD ["python", "GUI/manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python3", "GUI/manage.py", "runserver", "0.0.0.0:8000"]

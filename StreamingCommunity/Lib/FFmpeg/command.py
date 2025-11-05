@@ -41,11 +41,9 @@ def add_encoding_params(ffmpeg_cmd: List[str]):
     Parameters:
         ffmpeg_cmd (List[str]): List of the FFmpeg command to modify
     """
-    if PARAM_FINAL:
-        ffmpeg_cmd.extend(PARAM_FINAL)
-    else:
-        ffmpeg_cmd.extend(PARAM_VIDEO)
-        ffmpeg_cmd.extend(PARAM_AUDIO)
+    ffmpeg_cmd.extend(PARAM_FINAL)
+    ffmpeg_cmd.extend(PARAM_VIDEO)
+    ffmpeg_cmd.extend(PARAM_AUDIO)
 
 
 def join_video(video_path: str, out_path: str, codec: M3U8_Codec = None):
@@ -77,6 +75,7 @@ def join_video(video_path: str, out_path: str, codec: M3U8_Codec = None):
     ffmpeg_cmd.extend([out_path, '-y'])
 
     # Run join
+    console.print("Sending: " + str(ffmpeg_cmd))
     if DEBUG_MODE:
         subprocess.run(ffmpeg_cmd, check=True)
     else:
@@ -155,6 +154,7 @@ def join_audios(video_path: str, audio_tracks: List[Dict[str, str]], out_path: s
     ffmpeg_cmd.extend([out_path, '-y'])
 
     # Run join
+    console.print("Sending: " + str(ffmpeg_cmd))
     if DEBUG_MODE:
         subprocess.run(ffmpeg_cmd, check=True)
     else:
